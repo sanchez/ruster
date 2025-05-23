@@ -4,5 +4,5 @@ pub use event_bus::*;
 mod message_queue;
 pub use message_queue::*;
 
-mod pipeline;
+pub mod pipeline;
 pub use pipeline::*;
