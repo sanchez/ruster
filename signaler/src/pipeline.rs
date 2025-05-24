@@ -14,7 +14,7 @@
 //! # Example
 //!
 //! ```rust
-//! use signaler::pipeline::Pipeline;
+//! use signaler::Pipeline;
 //!
 //! // Create a pipeline that processes numbers
 //! let pipeline = Pipeline::new()
@@ -45,7 +45,7 @@ impl<T> Pipeline<T, T> {
     /// # Examples
     ///
     /// ```
-    /// use signaler::pipeline::Pipeline;
+    /// use signaler::Pipeline;
     ///
     /// let pipeline = Pipeline::<i32, i32>::new();
     /// assert_eq!(pipeline.execute(42), 42);
@@ -74,7 +74,7 @@ impl<TInput, TOutput> Pipeline<TInput, TOutput> {
     /// # Examples
     ///
     /// ```
-    /// use signaler::pipeline::Pipeline;
+    /// use signaler::Pipeline;
     ///
     /// let pipeline = Pipeline::new()
     ///     .map(|x: i32| x.to_string());
@@ -107,7 +107,7 @@ impl<TInput, TOutput> Pipeline<TInput, TOutput> {
     /// # Examples
     ///
     /// ```
-    /// use signaler::pipeline::Pipeline;
+    /// use signaler::Pipeline;
     ///
     /// let pipeline = Pipeline::new()
     ///     .map(|x: i32| x * 2)
@@ -150,7 +150,7 @@ impl<TInput, TOutput> Pipeline<TInput, TOutput> {
     /// # Examples
     ///
     /// ```
-    /// use signaler::pipeline::Pipeline;
+    /// use signaler::Pipeline;
     ///
     /// let pipeline = Pipeline::new()
     ///     .map(|x: i32| x.to_string())
@@ -192,7 +192,7 @@ impl<TInput, TOutput> Pipeline<TInput, TOutput> {
     /// # Examples
     ///
     /// ```
-    /// use signaler::pipeline::Pipeline;
+    /// use signaler::Pipeline;
     ///
     /// let pipeline = Pipeline::new()
     ///     .map(|x: i32| x * 2)

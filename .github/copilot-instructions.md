@@ -112,6 +112,25 @@ Remember: Tests should be reliable, readable, and maintainable. They serve as do
 - Use `cargo doc` to generate documentation and ensure it is up to date.
 - Use `cargo bench` to benchmark code and identify performance bottlenecks.
 
+## Namespacing
+
+Some modules hoist the names of their submodules to the root of the module. This is done to make the API cleaner and easier to use. For example, if you have a module `foo` with a submodule `bar`, you can access `bar` directly from `foo` like this:
+
+```rust
+mod foo {
+    pub mod bar {
+        pub fn baz() {
+            // ...
+        }
+    }
+}
+
+use foo::bar;
+bar::baz();
+```
+
+**NOTE:** Whenever you are writing or reviewing code, please review the `lib.rs` file to ensure that the namespacing is done correctly. This helps maintain a clean and organized API surface.
+
 ## Continuous Improvement
 
 - Continuously review and refactor your code following the rules above.
