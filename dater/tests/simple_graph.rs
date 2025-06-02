@@ -3,7 +3,7 @@ use dater::Graph;
 #[test]
 fn test_create_empty_graph() {
     // Arrange
-    let graph = Graph::new();
+    let graph: Graph<i32> = Graph::new();
 
     // Assert
     assert_eq!(graph.node_count(), 0);
@@ -13,46 +13,29 @@ fn test_create_empty_graph() {
 #[test]
 fn test_add_node() {
     // Arrange
-    let mut graph = Graph::new();
+    let mut graph: Graph<i32> = Graph::new();
 
     // Act
-    let node_id = graph.add_node(42);
+    let node_id = graph.insert(42).unwrap();
 
     // Assert
     assert_eq!(graph.node_count(), 1);
-    assert!(graph.contains_node(node_id));
-    assert_eq!(graph.get_node(node_id), Some(&42));
+    assert!(graph.node(node_id).is_some());
+    assert_eq!(**graph.node(node_id).unwrap(), 42);
 }
 
 #[test]
 fn test_add_edge() {
     // Arrange
-    let mut graph = Graph::new();
-    let node1 = graph.add_node(1);
-    let node2 = graph.add_node(2);
+    let mut graph: Graph<i32, &str> = Graph::new();
+    let node1 = graph.insert(1).unwrap();
+    let node2 = graph.insert(2).unwrap();
 
     // Act
-    let edge_id = graph.add_edge(node1, node2, "connects");
+    let edge = graph.connect(node1, "connects", node2).unwrap();
 
     // Assert
     assert_eq!(graph.edge_count(), 1);
-    assert!(graph.contains_edge(edge_id));
-    assert_eq!(graph.get_edge(edge_id), Some(&"connects"));
-}
-
-#[test]
-fn test_fluent_add() {
-    // Arrange
-    let mut graph = Graph::new();
-
-    let first_node = graph.add_node(10);
-    graph.add_node(20).add_edge(first_node, "link");
-
-    // Assert
-    assert_eq!(graph.node_count(), 2);
-    assert_eq!(graph.edge_count(), 1);
-    assert!(graph.contains_node(0));
-    assert!(graph.contains_node(1));
-    assert!(graph.contains_edge(0));
-    assert_eq!(graph.get_edge(0), Some(&"link"));
+    assert!(graph.edge(edge).is_some());
+    assert_eq!(**graph.edge(edge).unwrap(), "connects");
 }

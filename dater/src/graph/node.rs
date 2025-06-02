@@ -1,18 +1,22 @@
 use std::ops::Deref;
 
-use super::GraphId;
+use super::*;
 
 pub struct GraphNode<T> {
-    id: GraphId,
+    id: GraphNodeId,
     value: Box<T>,
 }
 
 impl<T> GraphNode<T> {
-    pub fn new(id: GraphId, value: T) -> Self {
+    pub fn new(id: GraphNodeId, value: T) -> Self {
         GraphNode {
             id,
             value: Box::new(value),
         }
+    }
+
+    pub fn id(&self) -> GraphNodeId {
+        self.id
     }
 }
 
