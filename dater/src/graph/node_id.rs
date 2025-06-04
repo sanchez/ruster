@@ -1,6 +1,4 @@
-use super::*;
-
-#[derive(Eq, Hash, PartialEq, Copy, Clone)]
+#[derive(Eq, Hash, PartialEq, Copy, Clone, Debug)]
 pub struct GraphNodeId(usize);
 
 impl GraphNodeId {
