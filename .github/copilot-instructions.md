@@ -131,6 +131,8 @@ bar::baz();
 
 **NOTE:** Whenever you are writing or reviewing code, please review the `lib.rs` file to ensure that the namespacing is done correctly. This helps maintain a clean and organized API surface.
 
+PLEASE MAKE SURE TO REVIEW THE `lib.rs` FILE FOR NAMESPACING AND MODULE STRUCTURE.
+
 ## Continuous Improvement
 
 - Continuously review and refactor your code following the rules above.
