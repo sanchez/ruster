@@ -1,4 +1,13 @@
 [workspace]
 resolver = "2"
 
-members = ["dater", "geocad", "geomagic", "mather", "pooler", "signaler"]
+members = [
+    "dater",
+    "geocad",
+    "geomagic",
+    "mather",
+    "pooler",
+    "signaler",
+    "logger",
+    "timer",
+]
